@@ -1,0 +1,29 @@
+{
+  "ids": {
+    "Todo": 5,
+    "User": 6,
+    "UserCredentials": 6
+  },
+  "models": {
+    "Todo": {
+      "1": "{\"title\":\"Take over the galaxy\",\"desc\":\"MWAHAHAHAHAHAHAHAHAHAHAHAHAMWAHAHAHAHAHAHAHAHAHAHAHAHA\",\"id\":1}",
+      "2": "{\"title\":\"destroy alderaan\",\"desc\":\"Make sure there are no survivors left!\",\"id\":2}",
+      "3": "{\"title\":\"play space invaders\",\"desc\":\"Become the very best!\",\"id\":3}",
+      "4": "{\"title\":\"crush rebel scum\",\"desc\":\"Every.Last.One.\",\"id\":4}"
+    },
+    "User": {
+      "140a89d2-23d3-4ce7-9f96-6cbc9d53a947": "{\"id\":\"140a89d2-23d3-4ce7-9f96-6cbc9d53a947\",\"realm\":\"string\",\"username\":\"string\",\"email\":\"string@test.com\",\"emailVerified\":true,\"verificationToken\":\"string\",\"additionalProp1\":{}}",
+      "81560c55-6dd6-43e8-90ff-857dfb15ea2a": "{\"id\":\"81560c55-6dd6-43e8-90ff-857dfb15ea2a\",\"realm\":\"string\",\"username\":\"string\",\"email\":\"string@test.com\",\"emailVerified\":true,\"verificationToken\":\"string\",\"additionalProp1\":{}}",
+      "dc63f490-ef44-42b5-a3c1-ccfbef23e412": "{\"id\":\"dc63f490-ef44-42b5-a3c1-ccfbef23e412\",\"realm\":\"string\",\"username\":\"string\",\"email\":\"string2@test.com\",\"emailVerified\":true,\"verificationToken\":\"string\",\"additionalProp1\":{}}",
+      "d94e928b-fa41-43a4-9436-e45d0e05b4e8": "{\"id\":\"d94e928b-fa41-43a4-9436-e45d0e05b4e8\",\"realm\":\"string\",\"username\":\"string\",\"email\":\"string@test.com\",\"emailVerified\":true,\"verificationToken\":\"string\",\"additionalProp1\":{}}",
+      "4a72c29a-94d1-4e59-927e-fc1230669806": "{\"id\":\"4a72c29a-94d1-4e59-927e-fc1230669806\",\"realm\":\"string\",\"username\":\"string\",\"email\":\"string2@test.com\",\"emailVerified\":true,\"verificationToken\":\"string\",\"additionalProp1\":{}}"
+    },
+    "UserCredentials": {
+      "6dca597c-ee17-4d07-9d58-0512cb2dd268": "{\"id\":\"6dca597c-ee17-4d07-9d58-0512cb2dd268\",\"password\":\"$2a$10$kQkDzrZgJhJZ33FFqA2tFOvHprXE62QeodFbfnvgS.eiBWWwWE9/6\",\"userId\":\"140a89d2-23d3-4ce7-9f96-6cbc9d53a947\"}",
+      "7631a333-9d18-4ce0-b174-d3364e41a662": "{\"id\":\"7631a333-9d18-4ce0-b174-d3364e41a662\",\"password\":\"$2a$10$rJ.NS20MaPFCFZgR3YD2luqY2RTfJ3r.9ywrutJQ4zTLD3IWgflAa\",\"userId\":\"81560c55-6dd6-43e8-90ff-857dfb15ea2a\"}",
+      "e5d83ac6-b3cc-48a8-9146-22925def064f": "{\"id\":\"e5d83ac6-b3cc-48a8-9146-22925def064f\",\"password\":\"$2a$10$sRTzNoOfwgp7Psw4A81.AOLHNpocMn8BUoav9CA2cd33ByGVfEVj6\",\"userId\":\"dc63f490-ef44-42b5-a3c1-ccfbef23e412\"}",
+      "8f01e674-28c9-4cab-a6a5-70f62a46b1b7": "{\"id\":\"8f01e674-28c9-4cab-a6a5-70f62a46b1b7\",\"password\":\"$2a$10$8E4XXlmQNoxVgtOzIa8WSOXQPRHWLDQtoFLbLKT/uabxotZRu1Nw2\",\"userId\":\"d94e928b-fa41-43a4-9436-e45d0e05b4e8\"}",
+      "c6fed7a9-f1a2-4020-9ff7-f84a68a86b54": "{\"id\":\"c6fed7a9-f1a2-4020-9ff7-f84a68a86b54\",\"password\":\"$2a$10$Olc9YucXhn9p6CIjOA8oR.T295mmX5V3x.ZHvewdmvPhbEaXGESYi\",\"userId\":\"4a72c29a-94d1-4e59-927e-fc1230669806\"}"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "name": "@loopback/match",
+  "version": "3.8.0",
+  "description": "Match api build with LoopBack 4",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": "^10.16 || 12 || 14"
+  },
+  "author": "IBM Corp.",
+  "copyright.owner": "IBM Corp.",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "lb-tsc",
+    "build:watch": "lb-tsc --watch",
+    "clean": "lb-clean *example-todo*.tgz dist *.tsbuildinfo package",
+    "lint": "npm run prettier:check && npm run eslint",
+    "lint:fix": "npm run eslint:fix && npm run prettier:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "eslint": "lb-eslint --report-unused-disable-directives .",
+    "eslint:fix": "npm run eslint -- --fix",
+    "pretest": "npm run build",
+    "test": "lb-mocha \"dist/__tests__/**/*.js\"",
+    "test:dev": "lb-mocha --allow-console-logs dist/__tests__/**/*.js && npm run posttest",
+    "verify": "npm pack && tar xf loopback-todo*.tgz && tree package && npm run clean",
+    "premigrate": "npm run build ",
+    "migrate": "node ./dist/migrate",
+    "preopenapi-spec": "npm run build",
+    "openapi-spec": "node ./dist/openapi-spec",
+    "prestart": "npm run build",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/strongloop/loopback-next.git",
+    "directory": "examples/todo"
+  },
+  "dependencies": {
+    "@loopback/authentication": "^7.0.2",
+    "@loopback/authentication-jwt": "^0.7.2",
+    "@loopback/boot": "^3.0.2",
+    "@loopback/core": "^2.11.0",
+    "@loopback/repository": "^3.1.0",
+    "@loopback/rest": "^8.0.0",
+    "@loopback/rest-explorer": "^3.0.2",
+    "@loopback/service-proxy": "^3.0.2",
+    "loopback-connector-mongodb": "^5.4.0",
+    "loopback-connector-rest": "^3.7.0",
+    "morgan": "^1.10.0",
+    "tslib": "^2.0.2"
+  },
+  "devDependencies": {
+    "@loopback/build": "^6.2.5",
+    "@loopback/eslint-config": "^10.0.1",
+    "@loopback/http-caching-proxy": "^2.1.16",
+    "@loopback/testlab": "^3.2.7",
+    "@types/lodash": "^4.14.161",
+    "@types/morgan": "^1.9.1",
+    "@types/node": "^10.17.35",
+    "eslint": "^7.10.0",
+    "lodash": "^4.17.20",
+    "typescript": "~4.0.3"
+  },
+  "keywords": [
+    "loopback",
+    "LoopBack",
+    "example",
+    "tutorial",
+    "CRUD",
+    "models",
+    "todo"
+  ],
+  "gitHead": "390f2794d10eea3d969ae417963af815ce1bc417"
+}
