@@ -17,7 +17,10 @@ import {
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
   UserPlus as UserPlusIcon,
-  Users as UsersIcon
+  Users as UsersIcon,
+  HelpCircle as HelpIcon,
+  Calendar as CalendarIcon,
+  Inbox as InboxIcon,
 } from 'react-feather';
 import NavItem from './NavItem';
 
@@ -38,11 +41,6 @@ const items = [
     title: 'Products'
   },
   {
-    href: '/app/account',
-    icon: UserIcon,
-    title: 'Account'
-  },
-  {
     href: '/app/settings',
     icon: SettingsIcon,
     title: 'Settings'
@@ -61,7 +59,32 @@ const items = [
     href: '/404',
     icon: AlertCircleIcon,
     title: 'Error'
-  }
+  },
+  {
+    href: '/app/group',
+    icon: UserIcon,
+    title: 'Groups'
+  },
+  {
+    href: '/app/calendar',
+    icon: CalendarIcon,
+    title: 'Calendar'
+  },
+  {
+    href: '/app/inbox',
+    icon: InboxIcon,
+    title: 'Inbox'
+  },
+  {
+    href: '/app/account',
+    icon: UserIcon,
+    title: 'Account'
+  },
+  {
+    href: '/app/help',
+    icon: HelpIcon,
+    title: 'Help'
+  },
 ];
 
 const useStyles = makeStyles(() => ({
