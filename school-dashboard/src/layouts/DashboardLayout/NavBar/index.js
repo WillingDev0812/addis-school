@@ -10,13 +10,13 @@ import {
   makeStyles
 } from '@material-ui/core';
 import {
-  AlertCircle as AlertCircleIcon,
+  // AlertCircle as AlertCircleIcon,
   // BarChart as BarChartIcon,
-  Lock as LockIcon,
+  // Lock as LockIcon,
   Settings as SettingsIcon,
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
-  UserPlus as UserPlusIcon,
+  // UserPlus as UserPlusIcon,
   Users as UsersIcon,
   HelpCircle as HelpIcon,
   Calendar as CalendarIcon,
@@ -31,34 +31,14 @@ const items = [
   //   title: 'Dashboard'
   // },
   {
-    href: '/app/customers',
+    href: '/app/students',
     icon: UsersIcon,
-    title: 'Customers'
+    title: 'Students'
   },
   {
-    href: '/app/products',
+    href: '/app/events',
     icon: ShoppingBagIcon,
-    title: 'Products'
-  },
-  {
-    href: '/app/settings',
-    icon: SettingsIcon,
-    title: 'Settings'
-  },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
-  {
-    href: '/register',
-    icon: UserPlusIcon,
-    title: 'Register'
-  },
-  {
-    href: '/404',
-    icon: AlertCircleIcon,
-    title: 'Error'
+    title: 'Events'
   },
   {
     href: '/app/group',
@@ -85,6 +65,26 @@ const items = [
     icon: HelpIcon,
     title: 'Help'
   },
+  {
+    href: '/app/settings',
+    icon: SettingsIcon,
+    title: 'Settings'
+  },
+  // {
+  //   href: '/login',
+  //   icon: LockIcon,
+  //   title: 'Login'
+  // },
+  // {
+  //   href: '/register',
+  //   icon: UserPlusIcon,
+  //   title: 'Register'
+  // },
+  // {
+  //   href: '/404',
+  //   icon: AlertCircleIcon,
+  //   title: 'Error'
+  // },
 ];
 
 const useStyles = makeStyles(() => ({
