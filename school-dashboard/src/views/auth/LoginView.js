@@ -16,6 +16,8 @@ import FacebookIcon from 'src/icons/Facebook';
 import GoogleIcon from 'src/icons/Google';
 import Page from 'src/components/Page';
 
+const handleSubmit = (e) => console.log("e",e)
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
@@ -58,7 +60,6 @@ const LoginView = () => {
               errors,
               handleBlur,
               handleChange,
-              handleSubmit,
               isSubmitting,
               touched,
               values
@@ -159,7 +160,8 @@ const LoginView = () => {
                     disabled={isSubmitting}
                     fullWidth
                     size="large"
-                    type="submit"
+                    // type="submit"
+                    onClick={handleSubmit}
                     variant="contained"
                   >
                     Sign in now
