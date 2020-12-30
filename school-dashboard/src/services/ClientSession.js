@@ -8,8 +8,8 @@ class ClientSession {
 
     static cookies = new Cookies();
 
-    static storeAuth = (value, func) => {
-        session.put(ClientSession.authkey, value, (err) => func(err));
+    static storeAuth = (value) => {
+        session.put(ClientSession.authkey, value, (err) => console.log(err));
     };
 
     static getAuth = (cb) => {

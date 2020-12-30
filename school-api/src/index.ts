@@ -19,7 +19,7 @@ if (require.main === module) {
   // Run the application
   const config = {
     rest: {
-      port: +(process.env.PORT ?? 3000),
+      port: +(process.env.PORT ?? 5000),
       host: process.env.HOST ?? 'localhost',
       openApiSpec: {
         // useful when used with OpenAPI-to-GraphQL to locate your application

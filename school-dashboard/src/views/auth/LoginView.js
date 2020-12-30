@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { Formik } from 'formik';
+import axios from 'axios';
+
 import {
   Box,
   Button,
@@ -15,8 +16,7 @@ import {
 import FacebookIcon from 'src/icons/Facebook';
 import GoogleIcon from 'src/icons/Google';
 import Page from 'src/components/Page';
-
-const handleSubmit = (e) => console.log("e",e)
+import UserService from '../../services/UserServices'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,8 +29,22 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginView = () => {
   const classes = useStyles();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const handleSubmit = async () => {
+    const data = {
+      email,
+      password
+    }
+    UserService.login(data)
+    // axios
+    // .post("http://localhost:5000/users/login", data)
+    // .then(response => console.log(response))
+    // .catch(error => console.log(error));
+   
+  }
   return (
     <Page
       className={classes.root}
@@ -43,28 +57,8 @@ const LoginView = () => {
         justifyContent="center"
       >
         <Container maxWidth="sm">
-          <Formik
-            initialValues={{
-              email: 'demo@devias.io',
-              password: 'Password123'
-            }}
-            validationSchema={Yup.object().shape({
-              email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-              password: Yup.string().max(255).required('Password is required')
-            })}
-            onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
-            }}
-          >
-            {({
-              errors,
-              handleBlur,
-              handleChange,
-              isSubmitting,
-              touched,
-              values
-            }) => (
-              <form onSubmit={handleSubmit}>
+         
+              <form>
                 <Box mb={3}>
                   <Typography
                     color="textPrimary"
@@ -73,7 +67,7 @@ const LoginView = () => {
                     Sign in
                   </Typography>
                   <Typography
-                    color="textSecondary"
+                    color="textSecondary" 
                     gutterBottom
                     variant="body2"
                   >
@@ -129,45 +123,41 @@ const LoginView = () => {
                   </Typography>
                 </Box>
                 <TextField
-                  error={Boolean(touched.email && errors.email)}
                   fullWidth
-                  helperText={touched.email && errors.email}
                   label="Email Address"
                   margin="normal"
                   name="email"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
+                  // onBlur={handleBlur}
+                  onChange={email => setEmail(email.target.value)}
                   type="email"
-                  value={values.email}
+                  value={email}
                   variant="outlined"
                 />
                 <TextField
-                  error={Boolean(touched.password && errors.password)}
                   fullWidth
-                  helperText={touched.password && errors.password}
                   label="Password"
                   margin="normal"
                   name="password"
-                  onBlur={handleBlur}
-                  onChange={handleChange}
+                  // onBlur={handleBlur}
+                  onChange={password => setPassword(password.target.value) }
                   type="password"
-                  value={values.password}
+                  value={password}
                   variant="outlined"
                 />
                 <Box my={2}>
                   <Button
                     color="primary"
-                    disabled={isSubmitting}
+                    // disabled={isSubmitting}
                     fullWidth
                     size="large"
                     // type="submit"
-                    onClick={handleSubmit}
                     variant="contained"
+                    onClick={handleSubmit}
                   >
                     Sign in now
                   </Button>
                 </Box>
-                <Typography
+                {/* <Typography
                   color="textSecondary"
                   variant="body1"
                 >
@@ -180,10 +170,11 @@ const LoginView = () => {
                   >
                     Sign up
                   </Link>
-                </Typography>
+                </Typography> */}
+
               </form>
-            )}
-          </Formik>
+         
+        
         </Container>
       </Box>
     </Page>
