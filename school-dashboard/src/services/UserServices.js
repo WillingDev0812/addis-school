@@ -10,8 +10,13 @@ const login = async (data) => {
     try {
         const response = await axios.post("http://localhost:5000/users/login", data)
         storeAuthData(response)
+        return {
+            status: "success"
+        }
     }catch {
-        console.error("Error Occurs")
+        return {
+            status: "failed"
+        }
     }
 };
 
@@ -30,7 +35,6 @@ const storeAuthData = async (response) => {
             // user: response
         }
     }
-
 }
 
 const reset = (email) => {
@@ -41,8 +45,23 @@ const changePassword = (password, accessToken) => {
     //todo change password
 }
 
-const logout = () => {
+const logout = async () => {
     //todo logout current user
+    try {
+        const logout = await ClientSession.removeAuth();
+        return {
+            status: "success",
+            message: "Logout in success",
+        }
+    }catch {
+        return {
+            status: "failed",
+            message: "Logout failed",
+            // user: response
+        }
+    }
+    
+
 }
 
 export default {login, reset, changePassword, logout}; 

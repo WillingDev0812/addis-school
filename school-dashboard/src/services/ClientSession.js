@@ -16,9 +16,9 @@ class ClientSession {
         session.get(ClientSession.authkey, (err, value) => cb(err, value));
     };
 
-    static removeAuth = (func) => {
+    static removeAuth = () => {
         session.remove(ClientSession.authkey, (err) => {
-            func(err);
+            console.log(err)
         });
     };
 

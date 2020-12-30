@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import axios from 'axios';
 
@@ -32,19 +32,24 @@ const LoginView = () => {
   // const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = async () => {
+
+  const handleLogin = async () => {
     const data = {
       email,
       password
     }
-    UserService.login(data)
-    // axios
-    // .post("http://localhost:5000/users/login", data)
-    // .then(response => console.log(response))
-    // .catch(error => console.log(error));
-   
+    const status = await UserService.login(data)
+    navigate('/app/dashboard', { replace: true });
   }
+
+  const handleLogout = async () => {
+    const status = await UserService.logout()
+
+  }
+
+
   return (
     <Page
       className={classes.root}
@@ -87,7 +92,7 @@ const LoginView = () => {
                       color="primary"
                       fullWidth
                       startIcon={<FacebookIcon />}
-                      onClick={handleSubmit}
+                      onClick={handleLogout}
                       size="large"
                       variant="contained"
                     >
@@ -102,7 +107,7 @@ const LoginView = () => {
                     <Button
                       fullWidth
                       startIcon={<GoogleIcon />}
-                      onClick={handleSubmit}
+                      onClick={handleLogin}
                       size="large"
                       variant="contained"
                     >
@@ -152,7 +157,7 @@ const LoginView = () => {
                     size="large"
                     // type="submit"
                     variant="contained"
-                    onClick={handleSubmit}
+                    onClick={handleLogin}
                   >
                     Sign in now
                   </Button>
