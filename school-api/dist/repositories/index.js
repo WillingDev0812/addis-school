@@ -8,4 +8,5 @@ const tslib_1 = require("tslib");
 tslib_1.__exportStar(require("./todo.repository"), exports);
 tslib_1.__exportStar(require("./feedback.repository"), exports);
 tslib_1.__exportStar(require("./service.repository"), exports);
+tslib_1.__exportStar(require("./student.repository"), exports);
 //# sourceMappingURL=index.js.map
