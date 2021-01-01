@@ -7,7 +7,7 @@ This project does not have a mongoDB connection setup. Setup the connection base
 - production: Since the config file is not pushed when you deploy your app, you must specifiy your db uri in heorku. Set the uri in heroku as specified in [this](https://devcenter.heroku.com/articles/config-vars) resource. Make sure you name the environement variable "DB_URI".
 
 ## Getting Started
-This repository aims to show the skills I have on MERN stack technology with a solid file structure as a foundation. On top of that, I write everything in a readable way implementing the good coding practice.
+This repository aims to show how to use MERN stack technology with a descriptive file structure as a foundation. On top of that, I write everything in a readable way, implementing good coding practice.
 
 Since this project will hold both the client application and the server application there will be node modules in two different places. l all modules again. This is a script we have defined in package.json.
 - addis-school
