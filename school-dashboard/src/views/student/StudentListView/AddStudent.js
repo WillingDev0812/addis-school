@@ -11,6 +11,7 @@ import {
     TextField,
     Typography,
      } from "@material-ui/core";
+import axios from 'axios';
 
 function rand() {
     return Math.round(Math.random() * 20) - 10;
@@ -51,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-end",
         alignItems: "center",
         paddingRight: 20
+    },
+    test__warn: {
+        color: 'red'
     }
 }));
 
@@ -72,6 +76,24 @@ export default function SimpleModal(props) {
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleSubmit = async () => {
+        console.log("data ", name, phone, location, email, password, policy)
+        const data = {
+            name,
+            email,
+            phone,
+            address: {
+                country: location,
+                state: 'Nevada',
+                city: 'Las Vegas',
+                street: '1798  Hickory Ridge Drive'
+            }
+
+        }
+
+        const response = await axios.post("http://127.0.0.1:5000/students", data)
+    }
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
@@ -160,8 +182,8 @@ export default function SimpleModal(props) {
                   <Checkbox
                     // checked={values.policy}
                     name="policy"
-                    onChange={policy => setPolicy(policy.target.value)}
-                    value = {policy}
+                    onChange={() => setPolicy(!policy)}
+                    checked = {policy}
                   />
                   <Typography
                     color="textSecondary"
@@ -180,18 +202,18 @@ export default function SimpleModal(props) {
                     </Link>
                   </Typography>
                 </Box>
-                {/* {Boolean(touched.policy && errors.policy) && (
-                  <FormHelperText error>
-                    {errors.policy}
+                {Boolean(policy) && (
+                  <FormHelperText className={classes.test__warn} >
+                    {"please accept terms and conditions"}
                   </FormHelperText>
-                )} */}
+                )}
                 <Box my={2}>
                   <Button
                     color="primary"
                     // disabled={isSubmitting}
                     fullWidth
                     size="large"
-                    type="submit"
+                    onClick={handleSubmit}
                     variant="contained"
                   >
                     Add Student
