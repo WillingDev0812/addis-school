@@ -195,6 +195,7 @@ const RegisterView = () => {
                   </Link>
                 </Typography>
               </form>
+           
             )}
           </Formik>
         </Container>
