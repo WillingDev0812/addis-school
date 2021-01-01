@@ -1,5 +1,5 @@
 import {Entity, model, property} from '@loopback/repository';
-
+import {Address} from "./address.model"
 @model()
 export class Student extends Entity {
   @property({
@@ -15,7 +15,7 @@ export class Student extends Entity {
   @property({
     type: 'string',
   })
-  location?: string;
+  avatarUrl?: string;
 
   @property({
     type: 'string',
@@ -33,6 +33,11 @@ export class Student extends Entity {
     generated: true,
   })
   id?: string;
+
+  @property({
+    type: 'object',
+  })
+  address?: Address;
 
 
   constructor(data?: Partial<Student>) {

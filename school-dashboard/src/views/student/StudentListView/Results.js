@@ -40,7 +40,6 @@ const Results = ({ className, customers, ...rest }) => {
     } else {
       newSelectedCustomerIds = [];
     }
-
     setSelectedCustomerIds(newSelectedCustomerIds);
   };
 
@@ -60,7 +59,6 @@ const Results = ({ className, customers, ...rest }) => {
         selectedCustomerIds.slice(selectedIndex + 1)
       );
     }
-
     setSelectedCustomerIds(newSelectedCustomerIds);
   };
 

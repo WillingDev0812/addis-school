@@ -9,4 +9,5 @@ tslib_1.__exportStar(require("./todo.model"), exports);
 tslib_1.__exportStar(require("./service.model"), exports);
 tslib_1.__exportStar(require("./feedback.model"), exports);
 tslib_1.__exportStar(require("./student.model"), exports);
+tslib_1.__exportStar(require("./address.model"), exports);
 //# sourceMappingURL=index.js.map

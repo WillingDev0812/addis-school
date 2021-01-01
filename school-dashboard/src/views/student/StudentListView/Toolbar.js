@@ -9,7 +9,8 @@ import {
   TextField,
   InputAdornment,
   SvgIcon,
-  makeStyles
+  makeStyles,
+  Modal
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
@@ -70,6 +71,7 @@ const Toolbar = ({ className, ...rest }) => {
                 variant="outlined"
               />
             </Box>
+ 
           </CardContent>
         </Card>
       </Box>

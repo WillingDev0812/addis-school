@@ -1931,14 +1931,19 @@
         "signature": "370a0b3fba11e513fbac8ba02e699789b3ca16aae192d254e0c013f5fe2b453f",
         "affectsGlobalScope": false
       },
+      "./src/models/address.model.ts": {
+        "version": "21a47be064acc5d238bc52c4d64fd115f7c6087d5fec1d397af4b79ae19cfc0b",
+        "signature": "696d0acb6d71e5bbf02a3c022cf59a2e60979c1402536047f7a168667d5e3b66",
+        "affectsGlobalScope": false
+      },
       "./src/models/student.model.ts": {
-        "version": "5ee202be048f2fabe77d3cdb151d1e7f18865d114b2b3144cd57b7e63662d777",
-        "signature": "e57398c4120ad0781b14e2d8fed8633664c170d38137c625fccc23f85a9ed9ee",
+        "version": "86402b5202b74f51f2a40394c9004f2c84d7baf75d1ef82df2b44c17eb2e03ee",
+        "signature": "d0b66d9e2ab9e4de7b7059a08fca35dd0d1019c1662ebf9997668ac49f0db216",
         "affectsGlobalScope": false
       },
       "./src/models/index.ts": {
-        "version": "6cd3d71f2ce61e98ed40ec41d316444d7e90aa7617dd89f0d3dfaf1f9834736f",
-        "signature": "68015f1d374d0186336aa3b233bb00fcdb61deb419e7677dfbef056439bce767",
+        "version": "73ae110eba7e395ae0b58fd5928b608adb5fe1e10e773d9d12fed6287bcaa2ed",
+        "signature": "07a60fd1033ed56eb33f44a5670d9fc92e2ce464b7cc8bd4f5b89bbd84768597",
         "affectsGlobalScope": false
       },
       "./src/repositories/todo.repository.ts": {
@@ -4242,10 +4247,14 @@
       "./src/migrate.ts": [
         "./src/application.ts"
       ],
+      "./src/models/address.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts"
+      ],
       "./src/models/feedback.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
       ],
       "./src/models/index.ts": [
+        "./src/models/address.model.ts",
         "./src/models/feedback.model.ts",
         "./src/models/service.model.ts",
         "./src/models/student.model.ts",
@@ -4255,7 +4264,8 @@
         "./node_modules/@loopback/repository/dist/index.d.ts"
       ],
       "./src/models/student.model.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts"
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/address.model.ts"
       ],
       "./src/models/todo.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
@@ -6225,10 +6235,14 @@
         "./src/models/index.ts",
         "./src/repositories/index.ts"
       ],
+      "./src/models/address.model.ts": [
+        "./node_modules/@loopback/repository/dist/index.d.ts"
+      ],
       "./src/models/feedback.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
       ],
       "./src/models/index.ts": [
+        "./src/models/address.model.ts",
         "./src/models/feedback.model.ts",
         "./src/models/service.model.ts",
         "./src/models/student.model.ts",
@@ -6238,7 +6252,8 @@
         "./node_modules/@loopback/repository/dist/index.d.ts"
       ],
       "./src/models/student.model.ts": [
-        "./node_modules/@loopback/repository/dist/index.d.ts"
+        "./node_modules/@loopback/repository/dist/index.d.ts",
+        "./src/models/address.model.ts"
       ],
       "./src/models/todo.model.ts": [
         "./node_modules/@loopback/repository/dist/index.d.ts"
@@ -6716,6 +6731,7 @@
       "./src/datasources/match.datasource.ts",
       "./src/index.ts",
       "./src/migrate.ts",
+      "./src/models/address.model.ts",
       "./src/models/feedback.model.ts",
       "./src/models/index.ts",
       "./src/models/service.model.ts",

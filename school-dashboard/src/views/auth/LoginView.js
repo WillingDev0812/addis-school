@@ -17,6 +17,7 @@ import FacebookIcon from 'src/icons/Facebook';
 import GoogleIcon from 'src/icons/Google';
 import Page from 'src/components/Page';
 import UserService from '../../services/UserServices'
+import ModalComp from 'src/components/ModalComponent'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +42,7 @@ const LoginView = () => {
       password
     }
     const status = await UserService.login(data)
-    navigate('/app/dashboard', { replace: true });
+    navigate('/app/students', { replace: true });
   }
 
   const handleLogout = async () => {
@@ -62,7 +63,10 @@ const LoginView = () => {
         justifyContent="center"
       >
         <Container maxWidth="sm">
-         
+         <ModalComp
+          title="Modal Title"
+          body="modal Body"
+          />
               <form>
                 <Box mb={3}>
                   <Typography
