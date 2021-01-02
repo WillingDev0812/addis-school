@@ -25,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
   },
   statsIcon: {
     marginRight: theme.spacing(1)
+  },
+  image : {
+    objectFit:'cover',
+    width:'100%',
+    height:'200px'
   }
 }));
 
@@ -37,14 +42,11 @@ const ProductCard = ({ className, product, ...rest }) => {
       {...rest}
     >
       <CardContent>
-        <Box
-          display="flex"
-          justifyContent="center"
-          mb={3}
-        >
+        <Box>
           <Avatar
+            className={classes.image}
             alt="Product"
-            src={product.media}
+            src={product.image}
             variant="square"
           />
         </Box>
