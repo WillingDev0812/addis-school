@@ -12,6 +12,7 @@ import {
   makeStyles
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
+import AddEvent from './AddEvent';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -41,12 +42,13 @@ const Toolbar = ({ className, ...rest }) => {
         <Button className={classes.exportButton}>
           Export
         </Button>
-        <Button
+        <AddEvent/>
+        {/* <Button
           color="primary"
           variant="contained"
         >
           Add event
-        </Button>
+        </Button> */}
       </Box>
       <Box mt={3}>
         <Card>

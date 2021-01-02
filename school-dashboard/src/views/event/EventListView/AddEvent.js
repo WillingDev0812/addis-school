@@ -62,11 +62,9 @@ export default function SimpleModal(props) {
     const classes = useStyles();
     const [modalStyle] = useState(getModalStyle);
     const [open, setOpen] = useState(false);
-    const [name, setName] = useState("")
-    const [phone, setPhone] = useState("")
-    const [location, setLocation] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
+    const [image, setImage] = useState("")
     const [policy, setPolicy] = useState(false)
 
     const handleOpen = () => {
@@ -78,21 +76,14 @@ export default function SimpleModal(props) {
     };
 
     const handleSubmit = async () => {
-        console.log("data ", name, phone, location, email, password, policy)
         const data = {
-            name,
-            email,
-            phone,
-            address: {
-                country: location,
-                state: 'Nevada',
-                city: 'Las Vegas',
-                street: '1798  Hickory Ridge Drive'
-            }
+            title,
+            description,
+            image
 
         }
 
-        const response = await axios.post("http://127.0.0.1:5000/students", data)
+        const response = await axios.post("http://127.0.0.1:5000/events", data)
     }
 
     const body = (
@@ -102,7 +93,7 @@ export default function SimpleModal(props) {
                     color="textPrimary"
                     variant="h2"
                   >
-                    Create new student
+                    Create new event
                   </Typography>
                 <Button
                 color="secondary"
@@ -116,62 +107,29 @@ export default function SimpleModal(props) {
                 
                 <TextField
                   fullWidth
-                  label="Name"
+                  label="Title"
                   margin="normal"
-                  name="name"
-                //   onBlur={handleBlur}
-                  onChange={name => setName(name.target.value)}
-                  value={name}
+                  name="title"
+                  onChange={title => setTitle(title.target.value)}
+                  value={title}
                   variant="outlined"
                 />
                 <TextField
                   fullWidth
-                //   helperText={touched.lastName && errors.lastName}
-                  label="Phone Number"
+                  label="Description"
                   margin="normal"
-                  name="lastName"
-                //   onBlur={handleBlur}
-                  onChange={phone_number => setPhone(phone_number.target.value)}
-                  value={phone}
+                  name="title"
+                  onChange={description => setDescription(description.target.value)}
+                  value={description}
                   variant="outlined"
                 />
                 <TextField
-                //   error={Boolean(touched.lastName && errors.lastName)}
                   fullWidth
-                //   helperText={touched.lastName && errors.lastName}
-                  label="Location"
+                  label="Image"
                   margin="normal"
                   name="location"
-                //   onBlur={handleBlur}
-                  onChange={location => setLocation(location.target.value)}
-                  value={location}
-                  variant="outlined"
-                />
-
-                <TextField
-                //   error={Boolean(touched.email && errors.email)}
-                  fullWidth
-                //   helperText={touched.email && errors.email}
-                  label="Email Address"
-                  margin="normal"
-                  name="email"
-                //   onBlur={handleBlur}
-                  onChange={ email => setEmail(email.target.value)}
-                  type="email"
-                  value={email}
-                  variant="outlined"
-                />
-                <TextField
-                //   error={Boolean(touched.password && errors.password)}
-                  fullWidth
-                //   helperText={touched.password && errors.password}
-                  label="Password"
-                  margin="normal"
-                  name="password"
-                //   onBlur={handleBlur}
-                  onChange={password => setPassword(password.target.value)}
-                  type="password"
-                  value={password}
+                  onChange={image => setImage(image.target.value)}
+                  value={image}
                   variant="outlined"
                 />
                 <Box
@@ -180,7 +138,6 @@ export default function SimpleModal(props) {
                   ml={-1}
                 >
                   <Checkbox
-                    // checked={values.policy}
                     name="policy"
                     onChange={() => setPolicy(!policy)}
                     checked = {policy}
@@ -193,7 +150,6 @@ export default function SimpleModal(props) {
                     {' '}
                     <Link
                       color="primary"
-                    //   component={RouterLink}
                       to="#"
                       underline="always"
                       variant="h6"
@@ -210,13 +166,12 @@ export default function SimpleModal(props) {
                 <Box my={2}>
                   <Button
                     color="primary"
-                    // disabled={isSubmitting}
                     fullWidth
                     size="large"
                     onClick={handleSubmit}
                     variant="contained"
                   >
-                    Add Student
+                    Add Event
                   </Button>
                 </Box>
               </form>
@@ -232,16 +187,11 @@ export default function SimpleModal(props) {
                 variant="contained"
                 onClick={handleOpen}
             >
-                Add student
+                Add event
         </Button>
-            {/* <button type="button" onClick={handleOpen}>
-        Open Modal
-      </button> */}
             <Modal
                 open={open}
                 onClose={handleClose}
-            // aria-labelledby="simple-modal-title"
-            // aria-describedby="simple-modal-description"
             >
                 {body}
             </Modal>
