@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -10,6 +10,7 @@ import Page from 'src/components/Page';
 import Toolbar from './Toolbar';
 import ProductCard from './ProductCard';
 import data from './data';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,12 +26,26 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductList = () => {
   const classes = useStyles();
-  const [products] = useState(data);
+  // const [products] = useState(data);
+  const [events, setEvents] = useState([]);
+  
+  useEffect(() => { 
+     getEvents()
+  },[]);
+
+  const getEvents = async() => {
+    try {
+      const events = await axios.get("http://127.0.0.1:5000/events")
+      setEvents( events.data)
+    }catch {
+      console.log("Err happened")
+    }
+  }
 
   return (
     <Page
       className={classes.root}
-      title="Products"
+      title="Events"
     >
       <Container maxWidth={false}>
         <Toolbar />
@@ -39,7 +54,7 @@ const ProductList = () => {
             container
             spacing={3}
           >
-            {products.map((product) => (
+            {events.map((product) => (
               <Grid
                 item
                 key={product.id}
