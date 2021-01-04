@@ -44,7 +44,7 @@ const StudentListView = () => {
       <Container maxWidth={false}>
         <Toolbar />
         <Box mt={3}>
-          <Results customers={customers} />
+          <Results customers={customers} onReload={() => getStudents()} />
         </Box>
       </Container>
     </Page>

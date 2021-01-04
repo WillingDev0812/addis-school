@@ -15,9 +15,11 @@ import {
   TablePagination,
   TableRow,
   Typography,
-  makeStyles
+  makeStyles,
+  Button
 } from '@material-ui/core';
 import getInitials from 'src/utils/getInitials';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -31,6 +33,7 @@ const Results = ({ className, customers, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
+  const [value, setValue] = useState(0);
 
   const handleSelectAll = (event) => {
     let newSelectedCustomerIds;
@@ -70,6 +73,16 @@ const Results = ({ className, customers, ...rest }) => {
     setPage(newPage);
   };
 
+  const deleteStudent = async (studentId) => {
+    try {
+      const students = await axios.delete("http://127.0.0.1:5000/students/"+studentId)
+      rest.onReload()
+      
+    }catch {
+      console.log("Err happened")
+    }
+  }
+
   return (
     <Card
       className={clsx(classes.root, className)}
@@ -105,6 +118,9 @@ const Results = ({ className, customers, ...rest }) => {
                 </TableCell>
                 <TableCell>
                   Registration date
+                </TableCell>
+                <TableCell>
+                  Actions
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -152,6 +168,9 @@ const Results = ({ className, customers, ...rest }) => {
                   </TableCell>
                   <TableCell>
                     {moment(customer.createdAt).format('DD/MM/YYYY')}
+                  </TableCell>
+                  <TableCell>
+                    <Button onClick={() => deleteStudent(customer.id)}>Delete</Button>
                   </TableCell>
                 </TableRow>
               ))}
