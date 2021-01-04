@@ -15,6 +15,7 @@ import {
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import axios from 'axios';
+import EditEvent from './EditEvent';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -99,8 +100,9 @@ const ProductCard = ({ className, product, ...rest }) => {
               display="inline"
               variant="body2"
             >
-               <Button variant="outlined" color="primary" 
-               onClick={() => editEvent(product)}>Edit</Button>
+               <EditEvent 
+               reReload={() =>  rest.onReload()}
+               event={{...product}}/>
             </Typography>
           </Grid>
           <Grid
