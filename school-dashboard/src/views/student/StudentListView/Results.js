@@ -16,15 +16,20 @@ import {
   TableRow,
   Typography,
   makeStyles,
-  Button
+  Button,
+  Divider
 } from '@material-ui/core';
 import getInitials from 'src/utils/getInitials';
 import axios from 'axios';
+import EditStudent from './EditStudent';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
   avatar: {
     marginRight: theme.spacing(2)
+  },
+  row_ele: {
+    display:'flex'
   }
 }));
 
@@ -170,7 +175,11 @@ const Results = ({ className, customers, ...rest }) => {
                     {moment(customer.createdAt).format('DD/MM/YYYY')}
                   </TableCell>
                   <TableCell>
-                    <Button onClick={() => deleteStudent(customer.id)}>Delete</Button>
+                  <div className={classes.row_ele} >
+                    <EditStudent customer={{...customer}}/>
+                    <Button variant="outlined" color="primary" 
+                    onClick={() => deleteStudent(customer.id)}>Delete</Button>
+                  </div>  
                   </TableCell>
                 </TableRow>
               ))}

@@ -42,7 +42,7 @@ const Toolbar = ({ className, ...rest }) => {
         <Button className={classes.exportButton}>
           Export
         </Button>
-        <AddEvent/>
+        <AddEvent reReload={() =>  rest.onReload()}/>
         {/* <Button
           color="primary"
           variant="contained"

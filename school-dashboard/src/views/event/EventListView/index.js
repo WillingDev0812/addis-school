@@ -48,7 +48,7 @@ const ProductList = () => {
       title="Events"
     >
       <Container maxWidth={false}>
-        <Toolbar />
+        <Toolbar onReload={getEvents}/>
         <Box mt={3}>
           <Grid
             container

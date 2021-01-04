@@ -40,12 +40,16 @@ const ProductCard = ({ className, product, ...rest }) => {
 
   const deleteEvent = async (eventId) => {
     try {
-      const students = await axios.delete("http://127.0.0.1:5000/events/"+eventId)
-      rest.onReload()
+      const students = await axios.delete("http://127.0.0.1:5000/events/"+eventId);
+      rest.onReload();
       
     }catch {
-      console.log("Err happened")
+      console.log("Err happened");
     }
+  }
+
+  const editEvent = async (event) => {
+    console.log("Event ", event);
   }
 
   return (
@@ -90,35 +94,27 @@ const ProductCard = ({ className, product, ...rest }) => {
             className={classes.statsItem}
             item
           >
-            <AccessTimeIcon
-              className={classes.statsIcon}
-              color="action"
-            />
             <Typography
               color="textSecondary"
               display="inline"
               variant="body2"
             >
-              Updated 2hr ago
+               <Button variant="outlined" color="primary" 
+               onClick={() => editEvent(product)}>Edit</Button>
             </Typography>
           </Grid>
           <Grid
             className={classes.statsItem}
             item
           >
-            {/* <GetAppIcon
-              className={classes.statsIcon}
-              color="action"
-            /> */}
+   
             <Typography
               color="textSecondary"
               display="inline"
               variant="body2"
             >
-              {/* {product.totalDownloads}
-              {' '}
-              Downloads */}
-              <Button onClick={() => deleteEvent(product.id)}>Delete</Button>
+              <Button variant="outlined" color="primary"  
+              onClick={() => deleteEvent(product.id)}>Delete</Button>
             </Typography>
           </Grid>
         </Grid>

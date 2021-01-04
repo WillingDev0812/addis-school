@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { 
     Modal, 
@@ -58,15 +58,18 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function SimpleModal(props) {
+export default function SimpleModal({...props}) {
     const classes = useStyles();
     const [modalStyle] = useState(getModalStyle);
     const [open, setOpen] = useState(false);
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
-    const [image, setImage] = useState("")
-    const [policy, setPolicy] = useState(false)
+    const [name, setName] = useState(props.customer.name )
+    const [phone, setPhone] = useState(props.customer.phone)
+    const [location, setLocation] = useState(props.customer.address.country)
+    const [email, setEmail] = useState(props.customer.email)
+    const [password, setPassword] = useState("")
+    const [policy, setPolicy] = useState(true)
 
+    console.log("props ", props.customer)
     const handleOpen = () => {
         setOpen(true);
     };
@@ -75,16 +78,28 @@ export default function SimpleModal(props) {
         setOpen(false);
     };
 
+    useEffect(()=>{
+
+        console.log("props", props.customer)
+
+    },[])
+
     const handleSubmit = async () => {
+        console.log("data ", name, phone, location, email, password, policy)
         const data = {
-            title,
-            description,
-            image
+            name,
+            email,
+            phone,
+            address: {
+                country: location,
+                state: 'Nevada',
+                city: 'Las Vegas',
+                street: '1798  Hickory Ridge Drive'
+            }
 
         }
-        const response = await axios.post("http://127.0.0.1:5000/events", data)
-        props.reReload()
-        setOpen(false)
+
+        const response = await axios.patch(`http://127.0.0.1:5000/students/${props.customer.id}`, data)
     }
 
     const body = (
@@ -94,7 +109,7 @@ export default function SimpleModal(props) {
                     color="textPrimary"
                     variant="h2"
                   >
-                    Create new event
+                    Edit Student
                   </Typography>
                 <Button
                 color="secondary"
@@ -108,29 +123,62 @@ export default function SimpleModal(props) {
                 
                 <TextField
                   fullWidth
-                  label="Title"
+                  label="Name"
                   margin="normal"
-                  name="title"
-                  onChange={title => setTitle(title.target.value)}
-                  value={title}
+                  name="name"
+                //   onBlur={handleBlur}
+                  onChange={name => setName(name.target.value)}
+                  value={name}
                   variant="outlined"
                 />
                 <TextField
                   fullWidth
-                  label="Description"
+                //   helperText={touched.lastName && errors.lastName}
+                  label="Phone Number"
                   margin="normal"
-                  name="title"
-                  onChange={description => setDescription(description.target.value)}
-                  value={description}
+                  name="lastName"
+                //   onBlur={handleBlur}
+                  onChange={phone_number => setPhone(phone_number.target.value)}
+                  value={phone}
                   variant="outlined"
                 />
                 <TextField
+                //   error={Boolean(touched.lastName && errors.lastName)}
                   fullWidth
-                  label="Image"
+                //   helperText={touched.lastName && errors.lastName}
+                  label="Location"
                   margin="normal"
                   name="location"
-                  onChange={image => setImage(image.target.value)}
-                  value={image}
+                //   onBlur={handleBlur}
+                  onChange={location => setLocation(location.target.value)}
+                  value={location}
+                  variant="outlined"
+                />
+
+                <TextField
+                //   error={Boolean(touched.email && errors.email)}
+                  fullWidth
+                //   helperText={touched.email && errors.email}
+                  label="Email Address"
+                  margin="normal"
+                  name="email"
+                //   onBlur={handleBlur}
+                  onChange={ email => setEmail(email.target.value)}
+                  type="email"
+                  value={email}
+                  variant="outlined"
+                />
+                <TextField
+                //   error={Boolean(touched.password && errors.password)}
+                  fullWidth
+                //   helperText={touched.password && errors.password}
+                  label="Password"
+                  margin="normal"
+                  name="password"
+                //   onBlur={handleBlur}
+                  onChange={password => setPassword(password.target.value)}
+                  type="password"
+                  value={password}
                   variant="outlined"
                 />
                 <Box
@@ -139,6 +187,7 @@ export default function SimpleModal(props) {
                   ml={-1}
                 >
                   <Checkbox
+                    // checked={values.policy}
                     name="policy"
                     onChange={() => setPolicy(!policy)}
                     checked = {policy}
@@ -151,6 +200,7 @@ export default function SimpleModal(props) {
                     {' '}
                     <Link
                       color="primary"
+                    //   component={RouterLink}
                       to="#"
                       underline="always"
                       variant="h6"
@@ -167,12 +217,13 @@ export default function SimpleModal(props) {
                 <Box my={2}>
                   <Button
                     color="primary"
+                    // disabled={isSubmitting}
                     fullWidth
                     size="large"
                     onClick={handleSubmit}
                     variant="contained"
                   >
-                    Add Event
+                    Edit
                   </Button>
                 </Box>
               </form>
@@ -187,12 +238,19 @@ export default function SimpleModal(props) {
                 color="primary"
                 variant="contained"
                 onClick={handleOpen}
+                variant="outlined" color="primary" 
+
             >
-                Add event
+                Edit
         </Button>
+            {/* <button type="button" onClick={handleOpen}>
+        Open Modal
+      </button> */}
             <Modal
                 open={open}
                 onClose={handleClose}
+            // aria-labelledby="simple-modal-title"
+            // aria-describedby="simple-modal-description"
             >
                 {body}
             </Modal>
