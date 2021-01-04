@@ -65,6 +65,7 @@ const ProductList = () => {
                 <ProductCard
                   className={classes.productCard}
                   product={product}
+                  onReload={getEvents}
                 />
               </Grid>
             ))}

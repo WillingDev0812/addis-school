@@ -9,10 +9,12 @@ import {
   Divider,
   Grid,
   Typography,
-  makeStyles
+  makeStyles,
+  Button
 } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import GetAppIcon from '@material-ui/icons/GetApp';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +37,16 @@ const useStyles = makeStyles((theme) => ({
 
 const ProductCard = ({ className, product, ...rest }) => {
   const classes = useStyles();
+
+  const deleteEvent = async (eventId) => {
+    try {
+      const students = await axios.delete("http://127.0.0.1:5000/events/"+eventId)
+      rest.onReload()
+      
+    }catch {
+      console.log("Err happened")
+    }
+  }
 
   return (
     <Card
@@ -94,18 +106,19 @@ const ProductCard = ({ className, product, ...rest }) => {
             className={classes.statsItem}
             item
           >
-            <GetAppIcon
+            {/* <GetAppIcon
               className={classes.statsIcon}
               color="action"
-            />
+            /> */}
             <Typography
               color="textSecondary"
               display="inline"
               variant="body2"
             >
-              {product.totalDownloads}
+              {/* {product.totalDownloads}
               {' '}
-              Downloads
+              Downloads */}
+              <Button onClick={() => deleteEvent(product.id)}>Delete</Button>
             </Typography>
           </Grid>
         </Grid>
