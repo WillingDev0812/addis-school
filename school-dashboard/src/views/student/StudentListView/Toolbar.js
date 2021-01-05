@@ -43,7 +43,7 @@ const Toolbar = ({ className, ...rest }) => {
         <Button className={classes.exportButton}>
           Export
         </Button>
-        <AddStudent/>
+        <AddStudent onReload={()=> rest.onReload}/>
       </Box>
       <Box mt={3}>
         <Card>

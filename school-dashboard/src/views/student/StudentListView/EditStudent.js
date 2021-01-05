@@ -78,14 +78,7 @@ export default function SimpleModal({...props}) {
         setOpen(false);
     };
 
-    useEffect(()=>{
-
-        console.log("props", props.customer)
-
-    },[])
-
     const handleSubmit = async () => {
-        console.log("data ", name, phone, location, email, password, policy)
         const data = {
             name,
             email,
@@ -98,8 +91,10 @@ export default function SimpleModal({...props}) {
             }
 
         }
-
-        const response = await axios.patch(`http://127.0.0.1:5000/students/${props.customer.id}`, data)
+        console.log("Im here")
+        const response = await axios.patch(`http://127.0.0.1:5000/students/${props.customer.id}`, data);
+        setOpen(false)
+        props.onReload();
     }
 
     const body = (
@@ -168,7 +163,7 @@ export default function SimpleModal({...props}) {
                   value={email}
                   variant="outlined"
                 />
-                <TextField
+                {/* <TextField
                 //   error={Boolean(touched.password && errors.password)}
                   fullWidth
                 //   helperText={touched.password && errors.password}
@@ -180,7 +175,7 @@ export default function SimpleModal({...props}) {
                   type="password"
                   value={password}
                   variant="outlined"
-                />
+                /> */}
                 <Box
                   alignItems="center"
                   display="flex"

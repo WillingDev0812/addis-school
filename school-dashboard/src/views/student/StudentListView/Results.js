@@ -176,7 +176,7 @@ const Results = ({ className, customers, ...rest }) => {
                   </TableCell>
                   <TableCell>
                   <div className={classes.row_ele} >
-                    <EditStudent customer={{...customer}}/>
+                    <EditStudent customer={{...customer}} onReload={()=> rest.onReload()}/>
                     <Button variant="outlined" color="primary" 
                     onClick={() => deleteStudent(customer.id)}>Delete</Button>
                   </div>  

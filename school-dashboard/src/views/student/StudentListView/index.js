@@ -42,7 +42,7 @@ const StudentListView = () => {
       title="Customers"
     >
       <Container maxWidth={false}>
-        <Toolbar />
+        <Toolbar onReload={() => getStudents()}/>
         <Box mt={3}>
           <Results customers={customers} onReload={() => getStudents()} />
         </Box>

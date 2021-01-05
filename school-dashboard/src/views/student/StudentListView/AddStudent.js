@@ -92,7 +92,9 @@ export default function SimpleModal(props) {
 
         }
 
-        const response = await axios.post("http://127.0.0.1:5000/students", data)
+        const response = await axios.post("http://127.0.0.1:5000/students", data);
+        props.onReload();
+
     }
 
     const body = (
@@ -161,7 +163,7 @@ export default function SimpleModal(props) {
                   value={email}
                   variant="outlined"
                 />
-                <TextField
+                {/* <TextField
                 //   error={Boolean(touched.password && errors.password)}
                   fullWidth
                 //   helperText={touched.password && errors.password}
@@ -173,7 +175,7 @@ export default function SimpleModal(props) {
                   type="password"
                   value={password}
                   variant="outlined"
-                />
+                /> */}
                 <Box
                   alignItems="center"
                   display="flex"
