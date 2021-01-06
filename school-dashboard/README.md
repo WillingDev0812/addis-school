@@ -43,6 +43,14 @@ We also have a pro version of this product which bundles even more pages and com
 
 - Views are on: `localhost:3000`
 
+# Using Docker
+ - `cd school-dashboard`
+ - To run dashboard in production mode `docker run -it --rm -p 1337:80 sample:prod`
+- To run dashboard in development mode `
+docker run -itd --rm -v ${PWD}:/app -v /app/node_modules -p 3001:3000 -e CHOKIDAR_USEPOLLING=true sample:dev`
+
+
+
 ## Documentation
 
 The documentation for the React Material Kit is can be found [here](https://material-ui.com?ref=devias-io).
