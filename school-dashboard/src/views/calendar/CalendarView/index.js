@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Container,
   Grid,
-  makeStyles
+  makeStyles,
+  Calendar as myCalendar
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 import Profile from './Profile';
@@ -45,7 +46,7 @@ const Calendar = () => {
             md={6}
             xs={12}
           >
-            <ProfileDetails />
+            <myCalendar maxWidth='100' minHeight="100" />
           </Grid>
         </Grid>
       </Container>

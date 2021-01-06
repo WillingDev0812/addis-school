@@ -17,7 +17,6 @@ import FacebookIcon from 'src/icons/Facebook';
 import GoogleIcon from 'src/icons/Google';
 import Page from 'src/components/Page';
 import UserService from '../../services/UserServices'
-import ModalComp from 'src/components/ModalComponent'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 
 const LoginView = () => {
   const classes = useStyles();
-  // const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -63,10 +61,6 @@ const LoginView = () => {
         justifyContent="center"
       >
         <Container maxWidth="sm">
-         <ModalComp
-          title="Modal Title"
-          body="modal Body"
-          />
               <form>
                 <Box mb={3}>
                   <Typography
