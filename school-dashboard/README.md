@@ -50,6 +50,10 @@ We also have a pro version of this product which bundles even more pages and com
 docker run -itd --rm -v ${PWD}:/app -v /app/node_modules -p 3001:3000 -e CHOKIDAR_USEPOLLING=true sample:dev`
 
 
+ - `cd school-api`
+-To run api in development mode  `docker run -itd --rm -v ${PWD}:/home/node/app -v /home/node/app/node_modules -p 5000:5000 -e CHOKIDAR_USEPOLLING=true api:dev`
+
+
 
 ## Documentation
 
