@@ -35,6 +35,12 @@ const StudentListView = () => {
       console.log("Err happened")
     }
   }
+  const onSearch = async (search)=> {
+    await getStudents();
+    if(search.trim() !== ""){
+      setCustomers(customers.filter(customer => customer.name.includes(search.trim())))
+    }
+  }
 
   return (
     <Page
@@ -42,7 +48,7 @@ const StudentListView = () => {
       title="Customers"
     >
       <Container maxWidth={false}>
-        <Toolbar onReload={() => getStudents()}/>
+        <Toolbar onReload={() => getStudents()} onSearch={onSearch}/>
         <Box mt={3}>
           <Results customers={customers} onReload={() => getStudents()} />
         </Box>

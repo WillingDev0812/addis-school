@@ -51,6 +51,7 @@ const Toolbar = ({ className, ...rest }) => {
             <Box maxWidth={500}>
               <TextField
                 fullWidth
+                onChange={ search => rest.onSearch(search.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
