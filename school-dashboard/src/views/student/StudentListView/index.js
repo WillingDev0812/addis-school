@@ -38,7 +38,7 @@ const StudentListView = () => {
   const onSearch = async (search)=> {
     await getStudents();
     if(search.trim() !== ""){
-      setCustomers(customers.filter(customer => customer.name.includes(search.trim())))
+      setCustomers(customers.filter(customer => customer.name.toLocaleLowerCase().includes(search.toLocaleLowerCase().trim())))
     }
   }
 

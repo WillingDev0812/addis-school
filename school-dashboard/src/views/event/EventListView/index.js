@@ -42,13 +42,20 @@ const ProductList = () => {
     }
   }
 
+  const onSearch = async(search) => {
+    await getEvents();
+    if(search.trim() !== ""){
+      setEvents(events.filter(event => event.title.toLocaleLowerCase().includes(search.toLocaleLowerCase().trim())));
+    }
+  }
+
   return (
     <Page
       className={classes.root}
       title="Events"
     >
       <Container maxWidth={false}>
-        <Toolbar onReload={getEvents}/>
+        <Toolbar onReload={getEvents} onSearch={onSearch}/>
         <Box mt={3}>
           <Grid
             container
