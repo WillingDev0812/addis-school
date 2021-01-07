@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 import AddStudent from './AddStudent';
+import { ExportToCsv } from 'ts-export-to-csv';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -24,6 +25,24 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1)
   }
 }));
+
+const exportData = (data)=>{
+  const options = { 
+    fieldSeparator: ',',
+    quoteStrings: '"',
+    decimalSeparator: '.',
+    showLabels: true, 
+    showTitle: true,
+    title: 'Event Export',
+    useTextFile: false,
+    useBom: true,
+    useKeysAsHeaders: true,
+    // headers: ['Column 1', 'Column 2', etc...], <-- Won't work with useKeysAsHeaders present!
+    // additionalHeaders: [{columns: ["HeaderRow1Column1", "HeaderRow1Column2"]}, {columns: ["HeaderRow2Column1","HeaderRow2Column2"]}]
+  };
+  const csvExporter = new ExportToCsv(options);
+  csvExporter.generateCsv(data);
+}
 
 const Toolbar = ({ className, ...rest }) => {
   const classes = useStyles();
@@ -40,7 +59,9 @@ const Toolbar = ({ className, ...rest }) => {
         <Button className={classes.importButton}>
           Import
         </Button>
-        <Button className={classes.exportButton}>
+        <Button 
+        onClick={()=>exportData(rest.students)}
+        className={classes.exportButton}>
           Export
         </Button>
         <AddStudent onReload={()=> rest.onReload}/>

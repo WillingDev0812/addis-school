@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const exportData = (data)=>{
-  debugger;
   const options = { 
     fieldSeparator: ',',
     quoteStrings: '"',
