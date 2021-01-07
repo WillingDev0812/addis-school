@@ -43,12 +43,6 @@ const Toolbar = ({ className, ...rest }) => {
           Export
         </Button>
         <AddEvent reReload={() =>  rest.onReload()}/>
-        {/* <Button
-          color="primary"
-          variant="contained"
-        >
-          Add event
-        </Button> */}
       </Box>
       <Box mt={3}>
         <Card>

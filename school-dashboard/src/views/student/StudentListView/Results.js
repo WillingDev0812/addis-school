@@ -80,7 +80,7 @@ const Results = ({ className, customers, ...rest }) => {
 
   const deleteStudent = async (studentId) => {
     try {
-      const students = await axios.delete("http://127.0.0.1:5000/students/"+studentId)
+      await axios.delete("http://127.0.0.1:5000/students/"+studentId)
       rest.onReload()
       
     }catch {

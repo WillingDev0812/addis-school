@@ -41,16 +41,12 @@ const ProductCard = ({ className, product, ...rest }) => {
 
   const deleteEvent = async (eventId) => {
     try {
-      const students = await axios.delete("http://127.0.0.1:5000/events/"+eventId);
+      await axios.delete("http://127.0.0.1:5000/events/"+eventId);
       rest.onReload();
       
     }catch {
       console.log("Err happened");
     }
-  }
-
-  const editEvent = async (event) => {
-    console.log("Event ", event);
   }
 
   return (

@@ -13,10 +13,6 @@ import {
      } from "@material-ui/core";
 import axios from 'axios';
 
-function rand() {
-    return Math.round(Math.random() * 20) - 10;
-}
-
 function getModalStyle() {
     const top = 50;
     const left = 50;
@@ -82,7 +78,7 @@ export default function SimpleModal(props) {
             image
 
         }
-        const response = await axios.post("http://127.0.0.1:5000/events", data)
+        await axios.post("http://127.0.0.1:5000/events", data)
         props.reReload()
         setOpen(false)
     }

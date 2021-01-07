@@ -69,7 +69,6 @@ export default function SimpleModal({...props}) {
     const [password, setPassword] = useState("")
     const [policy, setPolicy] = useState(true)
 
-    console.log("props ", props.customer)
     const handleOpen = () => {
         setOpen(true);
     };
@@ -91,8 +90,7 @@ export default function SimpleModal({...props}) {
             }
 
         }
-        console.log("Im here")
-        const response = await axios.patch(`http://127.0.0.1:5000/students/${props.customer.id}`, data);
+        await axios.patch(`http://127.0.0.1:5000/students/${props.customer.id}`, data);
         setOpen(false)
         props.onReload();
     }
@@ -121,68 +119,45 @@ export default function SimpleModal({...props}) {
                   label="Name"
                   margin="normal"
                   name="name"
-                //   onBlur={handleBlur}
                   onChange={name => setName(name.target.value)}
                   value={name}
                   variant="outlined"
                 />
                 <TextField
                   fullWidth
-                //   helperText={touched.lastName && errors.lastName}
                   label="Phone Number"
                   margin="normal"
                   name="lastName"
-                //   onBlur={handleBlur}
                   onChange={phone_number => setPhone(phone_number.target.value)}
                   value={phone}
                   variant="outlined"
                 />
                 <TextField
-                //   error={Boolean(touched.lastName && errors.lastName)}
                   fullWidth
-                //   helperText={touched.lastName && errors.lastName}
                   label="Location"
                   margin="normal"
                   name="location"
-                //   onBlur={handleBlur}
                   onChange={location => setLocation(location.target.value)}
                   value={location}
                   variant="outlined"
                 />
 
                 <TextField
-                //   error={Boolean(touched.email && errors.email)}
                   fullWidth
-                //   helperText={touched.email && errors.email}
                   label="Email Address"
                   margin="normal"
                   name="email"
-                //   onBlur={handleBlur}
                   onChange={ email => setEmail(email.target.value)}
                   type="email"
                   value={email}
                   variant="outlined"
                 />
-                {/* <TextField
-                //   error={Boolean(touched.password && errors.password)}
-                  fullWidth
-                //   helperText={touched.password && errors.password}
-                  label="Password"
-                  margin="normal"
-                  name="password"
-                //   onBlur={handleBlur}
-                  onChange={password => setPassword(password.target.value)}
-                  type="password"
-                  value={password}
-                  variant="outlined"
-                /> */}
                 <Box
                   alignItems="center"
                   display="flex"
                   ml={-1}
                 >
                   <Checkbox
-                    // checked={values.policy}
                     name="policy"
                     onChange={() => setPolicy(!policy)}
                     checked = {policy}
@@ -195,7 +170,6 @@ export default function SimpleModal({...props}) {
                     {' '}
                     <Link
                       color="primary"
-                    //   component={RouterLink}
                       to="#"
                       underline="always"
                       variant="h6"
@@ -212,7 +186,6 @@ export default function SimpleModal({...props}) {
                 <Box my={2}>
                   <Button
                     color="primary"
-                    // disabled={isSubmitting}
                     fullWidth
                     size="large"
                     onClick={handleSubmit}
@@ -238,14 +211,9 @@ export default function SimpleModal({...props}) {
             >
                 Edit
         </Button>
-            {/* <button type="button" onClick={handleOpen}>
-        Open Modal
-      </button> */}
             <Modal
                 open={open}
                 onClose={handleClose}
-            // aria-labelledby="simple-modal-title"
-            // aria-describedby="simple-modal-description"
             >
                 {body}
             </Modal>
