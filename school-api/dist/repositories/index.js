@@ -10,4 +10,5 @@ tslib_1.__exportStar(require("./feedback.repository"), exports);
 tslib_1.__exportStar(require("./service.repository"), exports);
 tslib_1.__exportStar(require("./student.repository"), exports);
 tslib_1.__exportStar(require("./event.repository"), exports);
+tslib_1.__exportStar(require("./setting.repository"), exports);
 //# sourceMappingURL=index.js.map

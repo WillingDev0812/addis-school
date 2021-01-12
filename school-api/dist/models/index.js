@@ -11,4 +11,5 @@ tslib_1.__exportStar(require("./feedback.model"), exports);
 tslib_1.__exportStar(require("./student.model"), exports);
 tslib_1.__exportStar(require("./address.model"), exports);
 tslib_1.__exportStar(require("./event.model"), exports);
+tslib_1.__exportStar(require("./setting.model"), exports);
 //# sourceMappingURL=index.js.map

@@ -10,4 +10,5 @@ tslib_1.__exportStar(require("./service.controller"), exports);
 tslib_1.__exportStar(require("./feedback.controller"), exports);
 tslib_1.__exportStar(require("./student.controller"), exports);
 tslib_1.__exportStar(require("./event.controller"), exports);
+tslib_1.__exportStar(require("./setting.controller"), exports);
 //# sourceMappingURL=index.js.map
