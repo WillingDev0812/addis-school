@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import {
@@ -14,6 +14,7 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
+import axios from 'axios';
 
 const useStyles = makeStyles(({
   root: {},
@@ -24,6 +25,31 @@ const useStyles = makeStyles(({
 }));
 
 const Notifications = ({ className, ...rest }) => {
+
+  const [email_notification, setEmail_notification] = useState(false);
+  const [email_push_notification, setEmail_push_notification] = useState(false);
+  const [phone_calls, setPhone_calls] = useState(false);
+  const [message_notifications, setMessage_notifications] = useState(false);
+  const [message_push_notification, setMessage_push_notification] = useState(false);
+
+  useEffect(async ()=>{
+    await getSettings()
+  },[])
+
+  const getSettings = () => {
+    axios.get("http://127.0.0.1:5000/settings")
+  }
+  const handleSave = async () => {
+    console.log("handle save called", email_notification)
+    let data = {
+      email_notification,
+      email_push_notification,
+      phone_calls,
+      message_notifications,
+      message_push_notification
+    }
+    await axios.post("http://127.0.0.1:5000/settings", data)
+  }
   const classes = useStyles();
 
   return (
@@ -59,23 +85,32 @@ const Notifications = ({ className, ...rest }) => {
               </Typography>
               <FormControlLabel
                 control={(
-                  <Checkbox defaultChecked />
+                  <Checkbox 
+                  checked={email_notification}
+                  onClick={()=> setEmail_notification(!email_notification)}
+                   />
                 )}
                 label="Email"
               />
               <FormControlLabel
                 control={(
-                  <Checkbox defaultChecked />
+                  <Checkbox 
+                  checked={email_push_notification}
+                  onClick={()=> setEmail_push_notification(!email_push_notification)}
+                   />
                 )}
                 label="Push Notifications"
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox />}
                 label="Text Messages"
-              />
+              /> */}
               <FormControlLabel
                 control={(
-                  <Checkbox defaultChecked />
+                  <Checkbox 
+                  checked={phone_calls}
+                  onClick={()=> setPhone_calls(!phone_calls)}
+                   />
                 )}
                 label="Phone calls"
               />
@@ -96,20 +131,27 @@ const Notifications = ({ className, ...rest }) => {
               </Typography>
               <FormControlLabel
                 control={(
-                  <Checkbox defaultChecked />
+                  <Checkbox 
+                  checked={message_notifications}
+                  onClick={()=> setMessage_notifications(!message_notifications)}
+                   />
                 )}
-                label="Email"
+                label="Message"
               />
               <FormControlLabel
-                control={<Checkbox />}
+                control={<Checkbox
+                checked={message_push_notification}
+                onClick={()=>{setMessage_push_notification(!message_push_notification)}}
+                
+                 />}
                 label="Push Notifications"
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={(
                   <Checkbox defaultChecked />
                 )}
                 label="Phone calls"
-              />
+              /> */}
             </Grid>
           </Grid>
         </CardContent>
@@ -122,6 +164,7 @@ const Notifications = ({ className, ...rest }) => {
           <Button
             color="primary"
             variant="contained"
+            onClick={handleSave}
           >
             Save
           </Button>
