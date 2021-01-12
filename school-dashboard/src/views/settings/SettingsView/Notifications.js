@@ -30,7 +30,7 @@ const Notifications = ({ className, ...rest }) => {
   const [email_push_notification, setEmail_push_notification] = useState(false);
   const [phone_calls, setPhone_calls] = useState(false);
   const [message_notifications, setMessage_notifications] = useState(false);
-  const [message_push_notification, setMessage_push_notification] = useState(false);
+  const [message_push_notifications, setMessage_push_notifications] = useState(false);
 
   useEffect(async ()=>{
     await getSettings()
@@ -46,7 +46,7 @@ const Notifications = ({ className, ...rest }) => {
       email_push_notification,
       phone_calls,
       message_notifications,
-      message_push_notification
+      message_push_notifications
     }
     await axios.post("http://127.0.0.1:5000/settings", data)
   }
@@ -140,8 +140,8 @@ const Notifications = ({ className, ...rest }) => {
               />
               <FormControlLabel
                 control={<Checkbox
-                checked={message_push_notification}
-                onClick={()=>{setMessage_push_notification(!message_push_notification)}}
+                checked={message_push_notifications}
+                onClick={()=>{setMessage_push_notifications(!message_push_notifications)}}
                 
                  />}
                 label="Push Notifications"
